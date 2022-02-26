@@ -4,6 +4,7 @@ implicit none
 
 integer :: ii, jj, kk, matrix_size
 integer, allocatable, dimension(:,:) :: dynamic_matrix
+integer, allocatable, dimension(:) :: myVector
 
 ii = 0
 jj = 0
@@ -16,6 +17,8 @@ do
   if (matrix_size<=0) exit ! termination or convergence criteria
 
   allocate(dynamic_matrix(0:matrix_size, 0:matrix_size))
+
+  dynamic_matrix = 0
 
   kk = 0
   do ii = 0, size(dynamic_matrix,1) - 1     ! CHECK THIS WARNING
